@@ -2,7 +2,7 @@ package com.example.itguysappv2
 
 
 sealed class Routes(val route: String) {
-    object Login : Routes("Login")
+    object Login : Routes("LoginPage")
     object SignUp : Routes("SignUp")
     object ForgotPassword : Routes("ForgotPassword")
     object Vareliste : Routes("Vareliste")
