@@ -7,7 +7,7 @@ object Vareinfo {
     val vare =
         Vare(
         id = 1,
-        tittel = "Test1",
+        tittel = "Instalasjon av Harddisk",
         pris = 500,
         beskrivelse = "",
         bildeId = R.drawable.p1
@@ -17,8 +17,8 @@ object Vareinfo {
         vare,
         Vare(
             id = 2,
-            tittel = "Test2",
-            pris = 999,
+            tittel = "Oppsett av Annen Server",
+            pris = 5000,
             beskrivelse = "",
             bildeId = R.drawable.p2
 
@@ -26,8 +26,8 @@ object Vareinfo {
 
         Vare(
             id = 3,
-            tittel = "Test3",
-            pris = 5000,
+            tittel = "Oppsett av WINDOWS Server",
+            pris = 4000,
             beskrivelse = "",
             bildeId = R.drawable.p3
 
@@ -35,7 +35,7 @@ object Vareinfo {
 
         Vare(
             id = 4,
-            tittel = "Test4",
+            tittel = "Reset og nytt oppsett av PC",
             pris = 1000,
             beskrivelse = "",
             bildeId = R.drawable.p4
@@ -44,7 +44,7 @@ object Vareinfo {
 
         Vare(
             id = 5,
-            tittel = "Test5",
+            tittel = "Hjelp med reset av PC",
             pris = 1000,
             beskrivelse = "",
             bildeId = R.drawable.p5
@@ -52,9 +52,9 @@ object Vareinfo {
 
         Vare(
             id = 6,
-            tittel = "Test6",
+            tittel = "Oppsett av WINDOWS maskin",
             pris = 1000,
-            beskrivelse = "",
+            beskrivelse = "Oppsett av WINDOWS maskin",
             bildeId = R.drawable.p6
         ),
     )

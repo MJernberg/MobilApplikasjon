@@ -12,7 +12,7 @@ object Profilinfo {
         etternavn = "Jakimiuk",
         alder = 23,
         beskrivelse = "",
-        profilbildeId = R.drawable.p1
+        profilbildeId = R.drawable.p8
         )
 
     val listeAvProfil = listOf(
@@ -23,17 +23,17 @@ object Profilinfo {
                 etternavn = "Jernberg",
                 alder = 21,
                 beskrivelse = "",
-                profilbildeId = R.drawable.p1
-            ),
+                profilbildeId = R.drawable.p8
+        ),
 
         Profil(
                 id = 3,
-                fornavn = "Testigen",
-                etternavn = "Testenensenerenen ",
-                alder = 500,
-                beskrivelse = "Dette er en test for å teste om dette fungere over flere rader, slik at vi ikke bare får alt på samme linje",
-                profilbildeId = R.drawable.p1
-                    ),
+                fornavn = "Sondre",
+                etternavn = "W. Aarstad",
+                alder = 26,
+                beskrivelse = "",
+                profilbildeId = R.drawable.p8
+        ),
     )
 }
 

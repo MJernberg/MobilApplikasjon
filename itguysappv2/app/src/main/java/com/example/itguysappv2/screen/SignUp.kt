@@ -1,29 +1,6 @@
 package com.example.itguysappv2.screen
 
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.TextField
-import androidx.compose.material3.Button
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.input.TextFieldValue
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import androidx.navigation.NavHostController
-import com.example.itguysappv2.CustomTopAppBar
-import com.example.itguysappv2.Routes
-
-@Composable
+/*@Composable
 fun SignUp(navController: NavHostController) {
     Box(modifier = Modifier.fillMaxSize()) {
         ScaffoldWithTopBar(navController)
@@ -88,7 +65,7 @@ fun ScaffoldWithTopBar(navController: NavHostController) {
                     Spacer(modifier = Modifier.height(20.dp))
                     Box(modifier = Modifier.padding(40.dp, 0.dp, 40.dp, 0.dp)) {
                         Button(
-                            onClick = { navController.navigate(Routes.Login.route) },
+                            onClick = { navController.navigate(Login.) },
                             shape = RoundedCornerShape(50.dp),
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -100,4 +77,4 @@ fun ScaffoldWithTopBar(navController: NavHostController) {
                 }
 
         })
-}
+}*/

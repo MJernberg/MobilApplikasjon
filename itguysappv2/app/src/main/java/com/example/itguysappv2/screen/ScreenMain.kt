@@ -13,13 +13,12 @@ import com.example.itguysappv2.Vareliste
 
 @Composable
 fun ScreenMain(){
+
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = Routes.Login.route) {
-
-        /*composable(Routes.Login.route) {
-            LoginPage(navController = navController)
-        }*/
+    NavHost(navController = navController,
+    startDestination = Routes.Hjem.route
+    ) {
 
         composable(Routes.Vareliste.route) {
            Vareliste(navController = navController)
@@ -33,9 +32,12 @@ fun ScreenMain(){
             Profileromoss(navController = navController)
         }
 
+        composable(Routes.Hjem.route) {
+            Hjem(navController = navController)
+        }
+
    }
 }
-
 
 
 

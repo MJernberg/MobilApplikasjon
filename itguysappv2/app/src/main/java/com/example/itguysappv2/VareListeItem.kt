@@ -37,7 +37,7 @@ fun VareListeItem(vare : Vare) {
                 .align(Alignment.CenterVertically)
                 ) {
             Text(text = vare.tittel, style = typography.h6)
-            Text(text = "VIS DETALJERT INFO", style = typography.caption)
+            Text(text = "Pris: " + vare.pris + ",00 kr", style = typography.caption)
         }
         }
     }

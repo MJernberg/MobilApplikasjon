@@ -36,7 +36,8 @@ fun HandlelisteItem(vare : Vare) {
                 .fillMaxWidth()
                 .align(Alignment.CenterVertically)
                 ) {
-            Text(text = vare.tittel + "     " + vare.pris + ",00kr", style = typography.h6)
+            Text(text = "VareID: " + vare.id + " " + vare.tittel, style = typography.h6)
+            Text(text = "Pris: " + vare.pris + ",00 kr", style = typography.caption)
         }
         }
     }

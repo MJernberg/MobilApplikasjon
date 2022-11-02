@@ -16,7 +16,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.itguysappv2.screen.ScreenMain
 import com.example.itguysappv2.ui.theme.JetpackComposeDemoTheme
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
@@ -26,6 +25,7 @@ import com.google.firebase.auth.FirebaseUser
 
 
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -34,12 +34,12 @@ class MainActivity : ComponentActivity() {
                          modifier = Modifier.fillMaxSize(),
                           color = MaterialTheme.colors.background
                                 ) {
+                    //ScreenMain()
                     LoginPage()
                 }
             }
         }
     }
-
     private var user: FirebaseUser? = FirebaseAuth.getInstance().currentUser
     private lateinit var auth: FirebaseAuth
 
@@ -104,10 +104,3 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
-
-
-
-
-
-
