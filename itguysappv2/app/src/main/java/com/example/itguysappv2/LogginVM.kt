@@ -1,36 +1,36 @@
 package com.example.itguysappv2
 
+import android.util.Log
+import androidx.lifecycle.ViewModel
+import com.example.itguysappv2.data.User
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestoreSettings
+import com.google.firebase.storage.FirebaseStorage
 
-/*class LogginVM : ViewModel() {
-    private var user: FirebaseUser? = FirebaseAuth.getInstance().currentUser
-    private lateinit var auth: FirebaseAuth
-    //Åpner opp sign in vinduet
-    private fun signIn() {
-        val providers = arrayListOf(
-            AuthUI.IdpConfig.EmailBuilder().build(),
-            AuthUI.IdpConfig.GoogleBuilder().build()
-        )
-        val signinIntent = AuthUI.getInstance()
-            .createSignInIntentBuilder()
-            .setAvailableProviders(providers)
-            .build()
 
-        signInLauncher.launch(signinIntent)
+class LogginVM : ViewModel() {
+
+    private lateinit var firestore : FirebaseFirestore
+    private var storageReference = FirebaseStorage.getInstance().getReference()
+    var user : User? = null
+
+    init {
+        firestore = FirebaseFirestore.getInstance()
+        firestore.firestoreSettings = FirebaseFirestoreSettings.Builder().build()
     }
 
-
-    //Slår sammen signInResult og signin
-    private val signInLauncher = registerForActivityResult(
-        FirebaseAuthUIActivityResultContract()
-    )
-    //Får svar om sign in funksjonen er velykket
-    private fun signInResult(result: FirebaseAuthUIAuthenticationResult) {
-        val response = result.idpResponse
-        if (result.resultCode == ComponentActivity.RESULT_OK) {
-            user = FirebaseAuth.getInstance().currentUser
-            Log.e("MainActivity.kt", "Innlogging vellykket")
-        } else {
-            Log.e("MainActivity.kt", "Feil med innlogging" + response?.error?.errorCode)
+    fun saveUser() {
+        user?.let {
+            user ->
+            val handle = firestore.collection("users").document(user.uid).set(user)
+            handle.addOnSuccessListener { Log.d("Firebase", "Lagret") }
+            handle.addOnFailureListener { Log.e("Firebase", "Feil med lagring") }
         }
     }
-}*/
+
+    fun velkommenVidere() {
+
+    }
+
+
+}

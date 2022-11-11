@@ -6,9 +6,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.itguysappv2.Handlekurv
-import com.example.itguysappv2.Profileromoss
 import com.example.itguysappv2.Routes
-import com.example.itguysappv2.Vareliste
+import com.example.itguysappv2.firebaseData.OmOssObject
+import com.example.itguysappv2.firebaseData.VarerObject
+import com.example.itguysappv2.firebaseData.VisningAvOmOss
+import com.example.itguysappv2.firebaseData.VisningAvVarer
 
 
 @Composable
@@ -20,16 +22,16 @@ fun ScreenMain(){
     startDestination = Routes.Hjem.route
     ) {
 
-        composable(Routes.Vareliste.route) {
-           Vareliste(navController = navController)
+       composable(Routes.ListeAvVarer.route) {
+           VisningAvVarer(navController, VarerObject.varerListe)
        }
 
        composable(Routes.Handlekurv.route) {
             Handlekurv(navController = navController)
         }
         
-        composable(Routes.Profileromoss.route) {
-            Profileromoss(navController = navController)
+        composable(Routes.OmOss.route) {
+            VisningAvOmOss(navController, OmOssObject.omOssListe)
         }
 
         composable(Routes.Hjem.route) {

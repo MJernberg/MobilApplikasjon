@@ -16,14 +16,19 @@ sealed class Routes(
         title = "Vareliste",
         icon = Icons.Default.ShoppingCart
     )
+    object ListeAvVarer : Routes(
+        route = "visningavvarer",
+        title = "VisningAvVarer",
+        icon = Icons.Default.ShoppingCart
+    )
     object Handlekurv : Routes(
             route = "handlekurv",
             title = "Handlekurv",
             icon = Icons.Default.ShoppingCart
     )
-    object Profileromoss : Routes(
-            route = "profileromoss",
-            title = "Profileromoss",
+    object OmOss : Routes(
+            route = "omoss",
+            title = "OmOss",
             icon = Icons.Default.Person
     )
     object Hjem : Routes(

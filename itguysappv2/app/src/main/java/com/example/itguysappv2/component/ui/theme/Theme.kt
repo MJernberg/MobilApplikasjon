@@ -1,22 +1,21 @@
-package com.example.itguysappv2.ui.theme
+package com.example.itguysappv2.component.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Shapes
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 
 private val DarkColorPalette = darkColors(
-    primary = Purple200,
-    primaryVariant = Purple700,
-    secondary = Teal200
+    primary = farge5,
+    primaryVariant = farge5,
+    secondary = farge5
 )
 
 private val LightColorPalette = lightColors(
-    primary = Purple500,
-    primaryVariant = Purple700,
-    secondary = Teal200
+    primary = farge5,
+    primaryVariant = farge5,
+    secondary = farge5,
 
     /* Other default colors to override
     background = Color.White,
@@ -29,7 +28,7 @@ private val LightColorPalette = lightColors(
 )
 
 @Composable
-fun JetpackComposeDemoTheme(
+fun ITGuysTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {

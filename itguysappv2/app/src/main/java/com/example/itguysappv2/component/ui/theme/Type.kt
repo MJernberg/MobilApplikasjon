@@ -1,4 +1,4 @@
-package com.example.itguysappv2.ui.theme
+package com.example.itguysappv2.component.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
