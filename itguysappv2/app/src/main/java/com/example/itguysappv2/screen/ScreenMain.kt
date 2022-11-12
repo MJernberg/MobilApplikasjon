@@ -37,6 +37,7 @@ fun ScreenMain(){
         composable(Routes.Hjem.route) {
             Hjem(navController = navController)
         }
+        // Kun for test av gitignore, bare å slette
 
    }
 }
