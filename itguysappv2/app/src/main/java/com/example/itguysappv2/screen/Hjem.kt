@@ -1,5 +1,6 @@
 package com.example.itguysappv2.screen
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
@@ -12,11 +13,14 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.example.itguysappv2.LogginVM
 import com.example.itguysappv2.Routes
 import com.example.itguysappv2.component.ui.theme.farge2
 
+@SuppressLint("SuspiciousIndentation")
 @Composable
     fun Hjem(navController: NavHostController) {
+    val viewModel = LogginVM()
     val mainButtonColor = ButtonDefaults.buttonColors(
             containerColor = farge2,
             contentColor = androidx.compose.ui.graphics.Color.White
@@ -47,7 +51,7 @@ import com.example.itguysappv2.component.ui.theme.farge2
             Box(modifier = Modifier.padding(40.dp, 20.dp, 40.dp, 0.dp)) {
                 Button(
                     colors = mainButtonColor,
-                    onClick = { navController.navigate(Routes.Handlekurv.route) },
+                    onClick = { navController.navigate(Routes.VisningAvHandlekurv.route); viewModel.listenToHandlekurv() },
                     shape = RoundedCornerShape(50.dp),
                     modifier = Modifier
                         .fillMaxWidth()
@@ -66,6 +70,19 @@ import com.example.itguysappv2.component.ui.theme.farge2
                         .height(50.dp)
                 ) {
                     Text(text = "Om Oss", style = TextStyle(fontSize = 20.sp), color = androidx.compose.ui.graphics.Color.White)
+                }
+            }
+
+            Box(modifier = Modifier.padding(40.dp, 20.dp, 40.dp, 0.dp)) {
+                Button(
+                    colors = mainButtonColor,
+                    onClick = { navController.navigate(Routes.MinSide.route) },
+                    shape = RoundedCornerShape(50.dp),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(50.dp)
+                ) {
+                    Text(text = "Min Side", style = TextStyle(fontSize = 20.sp), color = androidx.compose.ui.graphics.Color.White)
                 }
             }
         }

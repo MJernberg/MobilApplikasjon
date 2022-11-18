@@ -5,12 +5,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.itguysappv2.Handlekurv
 import com.example.itguysappv2.Routes
-import com.example.itguysappv2.firebaseData.OmOssObject
-import com.example.itguysappv2.firebaseData.VarerObject
-import com.example.itguysappv2.firebaseData.VisningAvOmOss
-import com.example.itguysappv2.firebaseData.VisningAvVarer
+import com.example.itguysappv2.firebaseData.*
 
 
 @Composable
@@ -26,18 +22,21 @@ fun ScreenMain(){
            VisningAvVarer(navController, VarerObject.varerListe)
        }
 
-       composable(Routes.Handlekurv.route) {
-            Handlekurv(navController = navController)
-        }
+        composable(Routes.VisningAvHandlekurv.route) {
+           VisningAvHandlekurv(navController, HandlelisteObject.handlelisteListe)
+       }
         
         composable(Routes.OmOss.route) {
             VisningAvOmOss(navController, OmOssObject.omOssListe)
         }
 
+        composable(Routes.MinSide.route) {
+            MinSide(navController)
+        }
+
         composable(Routes.Hjem.route) {
             Hjem(navController = navController)
         }
-        // Kun for test av gitignore, bare å slette
 
    }
 }

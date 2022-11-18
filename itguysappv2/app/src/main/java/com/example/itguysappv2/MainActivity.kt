@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.sp
 import com.example.itguysappv2.component.ui.theme.ITGuysTheme
 import com.example.itguysappv2.component.ui.theme.farge2
 import com.example.itguysappv2.data.User
+import com.example.itguysappv2.firebaseData.Handleliste
 import com.example.itguysappv2.firebaseData.OmOss
 import com.example.itguysappv2.firebaseData.Varer
 import com.example.itguysappv2.screen.ScreenMain
@@ -44,7 +45,6 @@ class MainActivity : ComponentActivity() {
         Varer()
         OmOss()
 
-
         setContent {
             firebaseUser?.let{
                 val user = User(it.uid, "")
@@ -55,7 +55,6 @@ class MainActivity : ComponentActivity() {
                          modifier = Modifier.fillMaxSize(),
                           color = MaterialTheme.colors.background
                                 ) {
-                    //ScreenMain()
                     LoginPage()
                 }
             }
@@ -116,6 +115,7 @@ class MainActivity : ComponentActivity() {
         .createSignInIntentBuilder()
         .setAvailableProviders(providers)
         .setLogo(R.drawable.handlekurvlogo)
+            .setTheme(R.style.Theme_Itguysappv2)
         .build()
 
         signInLauncher.launch(signinIntent)

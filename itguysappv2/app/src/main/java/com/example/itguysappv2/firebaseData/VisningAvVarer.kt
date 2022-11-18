@@ -17,12 +17,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.itguysappv2.CustomTopAppBar
+import com.example.itguysappv2.LogginVM
 import com.example.itguysappv2.component.ui.theme.farge3
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun VisningAvVarer(navController: NavHostController, varerListe: MutableList<VareFB>) {
+
     Scaffold(
             topBar = {
                 CustomTopAppBar(navController, "Vareliste", true)
@@ -51,21 +53,22 @@ fun VisningAvVarer(navController: NavHostController, varerListe: MutableList<Var
 
 @Composable
 fun VareKolonne(varerListe: MutableList<VareFB> ) {
-    Row(modifier = Modifier
-            .height(150.dp)
-             .horizontalScroll(rememberScrollState(), enabled = true),
-        ) {
+    Row() {
+        Column() {
             for (vare in varerListe){
                 Log.d(ContentValues.TAG, "Test")
                 VareKort(
+                    vare.vareID,
                     vare.tittel,
                     vare.pris.toString(),
                     vare.beskrivelse,
-                    vare. bildeID
+                    vare.bildeID
                 )
             }
         }
+
     }
+}
 
 @Composable
 fun KortLabel(tittel: String) {
@@ -81,14 +84,15 @@ fun KortLabel(tittel: String) {
 }
 
 @Composable
-fun VareKort(tittel: String, pris: String, beskrivelse: String, bildeID: String) {
+fun VareKort(vareID: String, tittel: String, pris: String, beskrivelse: String, bildeID: String) {
+    val viewModel = LogginVM()
     Log.d(ContentValues.TAG, tittel)
     Card (
         modifier = Modifier
             .width(350.dp)
             .height(150.dp)
-            .absolutePadding(right = Dp(35f))
-            .clickable { println(tittel + " er klikket på") },
+            .absolutePadding(bottom = Dp(35f))
+            .clickable { viewModel.saveHandlekruv(vareID, tittel, pris, beskrivelse, bildeID) },
         shape = RoundedCornerShape(8.dp)
         ) {
              Row() {
@@ -103,6 +107,6 @@ fun VareKort(tittel: String, pris: String, beskrivelse: String, bildeID: String)
                             KortLabel(pris + "kr")
                         }
 
-                    }    
+                }
     }
 }

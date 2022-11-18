@@ -11,24 +11,24 @@ sealed class Routes(
     val title: String,
     val icon: ImageVector
 ) {
-    object Vareliste : Routes(
-        route = "vareliste",
-        title = "Vareliste",
-        icon = Icons.Default.ShoppingCart
-    )
     object ListeAvVarer : Routes(
         route = "visningavvarer",
         title = "VisningAvVarer",
         icon = Icons.Default.ShoppingCart
     )
-    object Handlekurv : Routes(
-            route = "handlekurv",
-            title = "Handlekurv",
+    object VisningAvHandlekurv : Routes(
+            route = "visningavhandlekurv",
+            title = "VisningAvHandlekurv",
             icon = Icons.Default.ShoppingCart
     )
     object OmOss : Routes(
             route = "omoss",
             title = "OmOss",
+            icon = Icons.Default.Person
+    )
+    object MinSide : Routes(
+            route = "minside",
+            title = "MinSide",
             icon = Icons.Default.Person
     )
     object Hjem : Routes(

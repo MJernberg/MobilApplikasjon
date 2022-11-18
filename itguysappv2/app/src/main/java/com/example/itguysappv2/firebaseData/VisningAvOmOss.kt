@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.itguysappv2.CustomTopAppBar
@@ -47,20 +48,19 @@ fun VisningAvOmOss(navController: NavHostController, omOssListe: MutableList<OmO
 
 @Composable
 fun OmOssKolonne(omOssListe: MutableList<OmOssFB> ) {
-    Column(
-        modifier = Modifier
-            .height(150.dp)
-            .horizontalScroll(rememberScrollState(), enabled = true),
-    ) {
-        for (omOss in omOssListe){
-            Log.d(ContentValues.TAG, "omOmListe ok!")
-            OmOssKort(
-                omOss.fornavn,
-                omOss.etternavn,
-                omOss.alder,
-                omOss.beskrivelse
-            )
+    Row() {
+        Column() {
+            for (omOss in omOssListe){
+                Log.d(ContentValues.TAG, "omOmListe ok!")
+                OmOssKort(
+                    omOss.fornavn,
+                    omOss.etternavn,
+                    omOss.alder,
+                    omOss.beskrivelse
+                )
+            }
         }
+
     }
 }
 
@@ -71,6 +71,7 @@ fun OmOssKort(fornavn: String, etternavn: String, beskrivelse: String, alder: St
         modifier = Modifier
             .width(350.dp)
             .height(150.dp)
+            .absolutePadding(bottom = Dp(35f))
             .clickable { println(fornavn + " " + etternavn + " er klikket på") },
         shape = RoundedCornerShape(8.dp)
         ) {

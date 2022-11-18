@@ -2,7 +2,7 @@ package com.example.itguysappv2.firebaseData
 
 import com.google.firebase.firestore.Exclude
 
-data class VareFB(
+data class HandlelisteFB(
     var vareID: String,
     var tittel: String,
     val pris: String,
