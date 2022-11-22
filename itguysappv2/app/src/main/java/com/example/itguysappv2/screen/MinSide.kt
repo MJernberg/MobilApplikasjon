@@ -32,7 +32,6 @@ fun MinSide(navController: NavHostController) {
     )
     val viewModel = LogginVM()
     var firebaseUser: FirebaseUser? = FirebaseAuth.getInstance().currentUser
-    val epost = firebaseUser?.email
     Scaffold(
         topBar = {
             CustomTopAppBar(navController, "Min Side", true)
