@@ -1,6 +1,7 @@
 package com.example.itguysappv2
 
 import android.annotation.SuppressLint
+import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
@@ -21,7 +22,6 @@ import androidx.compose.ui.unit.sp
 import com.example.itguysappv2.component.ui.theme.ITGuysTheme
 import com.example.itguysappv2.component.ui.theme.farge2
 import com.example.itguysappv2.data.User
-import com.example.itguysappv2.firebaseData.Handleliste
 import com.example.itguysappv2.firebaseData.OmOss
 import com.example.itguysappv2.firebaseData.Varer
 import com.example.itguysappv2.screen.ScreenMain
@@ -31,17 +31,17 @@ import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
+var mainActivity: MainActivity? = null
 
 class MainActivity : ComponentActivity() {
 
     private var firebaseUser: FirebaseUser? = FirebaseAuth.getInstance().currentUser
     val viewModel = LogginVM()
-    var mainActivity: MainActivity? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         mainActivity = this
+        super.onCreate(savedInstanceState)
         Varer()
         OmOss()
 
@@ -98,12 +98,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-//Slår sammen signInResult og signin
-    private val signInLauncher = registerForActivityResult(
-        FirebaseAuthUIActivityResultContract()
-    ) {
-        res -> this.signInResult(res)
-    }
+
 
 //Åpner opp sign in vinduet
     private fun signIn() {
@@ -121,7 +116,12 @@ class MainActivity : ComponentActivity() {
         signInLauncher.launch(signinIntent)
     }
 
-
+    //Slår sammen signInResult og signin
+    private val signInLauncher = registerForActivityResult(
+        FirebaseAuthUIActivityResultContract()
+    ) {
+            res -> this.signInResult(res)
+    }
 
 //Får svar om sign in funksjonen er velykket
     private fun signInResult(result: FirebaseAuthUIAuthenticationResult) {
@@ -132,10 +132,14 @@ class MainActivity : ComponentActivity() {
             setContent {
                 DefaultPreview()
             }
+
             firebaseUser?.let{
                 val user = User(it.uid, it.displayName)
                 viewModel.user = user
                 viewModel.saveUser()
+                if (!firebaseUser!!.isEmailVerified) {
+                    firebaseUser!!.sendEmailVerification()
+                }
             }
         } else {
             Log.e("MainActivity.kt", "Feil med innlogging" + response?.error?.errorCode)

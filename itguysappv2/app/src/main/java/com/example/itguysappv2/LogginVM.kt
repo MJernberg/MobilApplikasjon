@@ -1,28 +1,21 @@
 package com.example.itguysappv2
 
+import android.content.ContentValues.TAG
 import android.util.Log
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.example.itguysappv2.data.User
 import com.example.itguysappv2.firebaseData.Handleliste
 import com.example.itguysappv2.firebaseData.HandlelisteObject.handlelisteListe
 import com.example.itguysappv2.firebaseData.VareFB
-import com.example.itguysappv2.firebaseData.Varer
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
-import com.google.firebase.firestore.Source
-import com.google.firebase.storage.FirebaseStorage
 
 
 class LogginVM : ViewModel() {
 
-    private lateinit var firestore: FirebaseFirestore
-    private var storageReference = FirebaseStorage.getInstance().getReference()
+    private var firestore: FirebaseFirestore
     var user: User? = null
 
     init {
@@ -80,6 +73,33 @@ class LogginVM : ViewModel() {
             handle.addOnFailureListener {
                 Log.e("Firebase", "Lagring feilet")
             }
+        }
+    }
+
+    fun deleteHandlekurv(vareID: String) {
+        var firebaseUser: FirebaseUser? = FirebaseAuth.getInstance().currentUser
+        firebaseUser?.let {
+            firestore.collection("users").document(it.uid).collection("handlekurv").document(vareID)
+                .delete()
+                .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully deleted!") }
+                .addOnFailureListener { e -> Log.w(TAG, "Error deleting document", e) }
+        }
+
+    }
+
+    fun slettBruker() {
+        var firebaseUser: FirebaseUser? = FirebaseAuth.getInstance().currentUser
+
+        firebaseUser?.delete()?.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                Log.d(TAG, "User account deleted.")
+            }
+        }
+    }
+
+    fun regnUtPris() {
+        for (vare in handlelisteListe) {
+            handlelisteListe.sumOf { vare.pris.toInt() }
         }
     }
 

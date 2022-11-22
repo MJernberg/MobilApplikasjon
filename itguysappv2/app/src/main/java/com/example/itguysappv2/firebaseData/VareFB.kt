@@ -1,7 +1,5 @@
 package com.example.itguysappv2.firebaseData
 
-import com.google.firebase.firestore.Exclude
-
 data class VareFB(
     var vareID: String,
     var tittel: String,
@@ -12,17 +10,6 @@ data class VareFB(
 
     override fun toString(): String {
         return "$vareID $tittel $beskrivelse"
-    }
-
-    @Exclude
-    fun toMap(): Map<String, Any?> {
-        return mapOf(
-            "vareID" to vareID,
-            "tittel" to tittel,
-            "pris" to pris,
-            "beskrivelse" to beskrivelse,
-            "bildeID" to bildeID,
-        )
     }
 
 }

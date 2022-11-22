@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import coil.compose.AsyncImage
 import com.example.itguysappv2.CustomTopAppBar
 import com.example.itguysappv2.LogginVM
 import com.example.itguysappv2.component.ui.theme.farge3
@@ -42,6 +43,7 @@ fun VisningAvVarer(navController: NavHostController, varerListe: MutableList<Var
                                 .verticalScroll(rememberScrollState(),enabled = true),
                                 horizontalAlignment = Alignment.CenterHorizontally
                         ) {
+                            Text(text = "Trykk på en vare for å legge den til i handlekurven din")
                             VareKolonne(varerListe)
 
                             Spacer(modifier = Modifier.height(100.dp))
@@ -60,7 +62,7 @@ fun VareKolonne(varerListe: MutableList<VareFB> ) {
                 VareKort(
                     vare.vareID,
                     vare.tittel,
-                    vare.pris.toString(),
+                    vare.pris,
                     vare.beskrivelse,
                     vare.bildeID
                 )
@@ -71,13 +73,13 @@ fun VareKolonne(varerListe: MutableList<VareFB> ) {
 }
 
 @Composable
-fun KortLabel(tittel: String) {
+fun KortLabel(tittel: String, textAlign: TextAlign) {
     Text(
         text = tittel,
         modifier = Modifier
             .absolutePadding(bottom = Dp(5f))
             .background(Color.Transparent),
-        textAlign = TextAlign.Right,
+        textAlign = textAlign,
         fontSize = 20.sp,
         color = farge3
     )
@@ -96,17 +98,24 @@ fun VareKort(vareID: String, tittel: String, pris: String, beskrivelse: String, 
         shape = RoundedCornerShape(8.dp)
         ) {
              Row() {
-                        Column(modifier = Modifier
-                            .padding(horizontal = 19.dp)
-                            .fillMaxHeight()
-                            .background(Color.Transparent),
 
-                            ) {
-                            KortLabel(tittel)
-                            KortLabel(beskrivelse)
-                            KortLabel(pris + "kr")
-                        }
+                Column(modifier = Modifier
+                    .padding(horizontal = 19.dp)
+                    .fillMaxHeight()
+                    .background(Color.Transparent),
 
+                    ) {
+                    KortLabel(tittel + "\n", TextAlign.Justify)
+                    KortLabel(pris + "kr" + "\n", TextAlign.Justify)
+                }
+                 AsyncImage(
+                     model = bildeID,
+                     contentDescription = tittel,
+                     modifier = Modifier
+                         .fillMaxSize()
+                         .weight(1f),
+                     alignment = Alignment.CenterEnd
+                 )
                 }
     }
 }
