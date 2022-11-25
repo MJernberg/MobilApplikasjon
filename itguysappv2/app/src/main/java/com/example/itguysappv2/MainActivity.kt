@@ -100,6 +100,7 @@ class MainActivity : ComponentActivity() {
 
 
 // Funksjonene signIn og signInResult er funksjoner hentet fra Firebase Auth
+// https://firebase.google.com/docs/auth
     private fun signIn() {
         val providers = arrayListOf(
             AuthUI.IdpConfig.EmailBuilder().build(),
