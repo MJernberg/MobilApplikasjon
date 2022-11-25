@@ -13,16 +13,4 @@ data class HandlelisteFB(
     override fun toString(): String {
         return "$vareID $tittel $beskrivelse"
     }
-
-    @Exclude
-    fun toMap(): Map<String, Any?> {
-        return mapOf(
-            "vareID" to vareID,
-            "tittel" to tittel,
-            "pris" to pris,
-            "beskrivelse" to beskrivelse,
-            "bildeID" to bildeID,
-        )
-    }
-
 }

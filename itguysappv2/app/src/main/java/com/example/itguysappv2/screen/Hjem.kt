@@ -1,6 +1,5 @@
 package com.example.itguysappv2.screen
 
-import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
@@ -17,7 +16,6 @@ import com.example.itguysappv2.LogginVM
 import com.example.itguysappv2.Routes
 import com.example.itguysappv2.component.ui.theme.farge2
 
-@SuppressLint("SuspiciousIndentation")
 @Composable
     fun Hjem(navController: NavHostController) {
     val viewModel = LogginVM()

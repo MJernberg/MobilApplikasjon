@@ -35,7 +35,6 @@ fun VisningAvOmOss(navController: NavHostController, omOssListe: MutableList<OmO
             }
         ) {
 
-                    // A surface container using the 'background' color from the theme
                     Surface(
                         modifier = Modifier
                             .fillMaxSize()

@@ -32,7 +32,6 @@ fun VisningAvVarer(navController: NavHostController, varerListe: MutableList<Var
             }
         ) {
 
-                    // A surface container using the 'background' color from the theme
                     Surface(
                         modifier = Modifier
                             .fillMaxSize()

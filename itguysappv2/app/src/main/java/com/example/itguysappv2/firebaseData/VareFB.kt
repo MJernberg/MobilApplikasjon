@@ -8,8 +8,4 @@ data class VareFB(
     val bildeID: String,
 ) {
 
-    override fun toString(): String {
-        return "$vareID $tittel $beskrivelse"
-    }
-
 }
