@@ -99,8 +99,7 @@ class MainActivity : ComponentActivity() {
     }
 
 
-
-//Åpner opp sign in vinduet
+// Funksjonene signIn og signInResult er funksjoner hentet fra Firebase Auth
     private fun signIn() {
         val providers = arrayListOf(
             AuthUI.IdpConfig.EmailBuilder().build(),
@@ -116,14 +115,12 @@ class MainActivity : ComponentActivity() {
         signInLauncher.launch(signinIntent)
     }
 
-    //Slår sammen signInResult og signin
     private val signInLauncher = registerForActivityResult(
         FirebaseAuthUIActivityResultContract()
     ) {
             res -> this.signInResult(res)
     }
 
-//Får svar om sign in funksjonen er velykket
     private fun signInResult(result: FirebaseAuthUIAuthenticationResult) {
         val response = result.idpResponse
         if (result.resultCode == RESULT_OK) {

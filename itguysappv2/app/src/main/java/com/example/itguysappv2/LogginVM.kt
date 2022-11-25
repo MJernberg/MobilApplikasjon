@@ -97,10 +97,5 @@ class LogginVM : ViewModel() {
         }
     }
 
-    fun regnUtPris() {
-        for (vare in handlelisteListe) {
-            handlelisteListe.sumOf { vare.pris.toInt() }
-        }
-    }
 
 }

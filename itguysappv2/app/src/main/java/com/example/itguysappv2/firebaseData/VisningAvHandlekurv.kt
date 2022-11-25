@@ -44,7 +44,6 @@ fun VisningAvHandlekurv(navController: NavHostController, handlelisteListe: Muta
             ) {
                 Text(text = "Trykk på en vare for å fjerne den fra handlekurven din")
                 HandleKolonne(handlelisteListe)
-
                 Spacer(modifier = Modifier.height(100.dp))
             }
 
